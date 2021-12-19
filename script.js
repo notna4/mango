@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicnViaWM0IiwiYSI6ImNrY3Vla3R1ZjF0YnYyeXQ2c243e
 
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    style: 'mapbox://styles/rubic4/ckxdsns7kf5ij15nst0xk2u2k', // style URL
     center: [21.2087, 45.7489], // starting position [lng, lat]
-    zoom: 12 // starting zoom
+    zoom: 19 // starting zoom
 });
 
 let startLat;
@@ -83,7 +83,8 @@ document.getElementById('process').onclick = function() {
         // These options control the ending camera position: centered at
         // the target, at zoom level 9, and north up.
         center: coord[0],
-        zoom: 17,
+        bearing: bearingBetween(coord[i], coord[i+1]) + 90,
+        zoom: 19,
 
         // These options control the flight curve, making it move
         // slowly and zoom out almost completely before starting
@@ -123,13 +124,13 @@ document.getElementById('journey').onclick = function() {
                 // the target, at zoom level 9, and north up.
                 center: coord[i],
                 bearing: bearingBetween(coord[i], coord[i+1]) + 90,
-                zoom: 17,
+                zoom: 19,
         
                 // These options control the flight curve, making it move
                 // slowly and zoom out almost completely before starting
                 // to pan.
-                speed: 0.06, // make the flying slow
-                curve: 0.4, // change the speed at which it zooms out
+                speed: 0.04, // make the flying slow
+                curve: 1, // change the speed at which it zooms out
         
                 // This can be any easing function: it takes a number between
                 // 0 and 1 and returns another number between 0 and 1.
